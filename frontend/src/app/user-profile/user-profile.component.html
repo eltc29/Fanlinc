@@ -1,0 +1,63 @@
+<!doctype html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<div id='wrap'>
+	<div class='row'>
+		<div class='column'>
+			<p style='height:130px;width:130px'><img src="{{imagelink}}" alt="user-img" style="width:130px;height:130px;border-radius:50%"></p>
+			<button *ngIf='isShow' id='friendB' (click)="addFriendClicked(username)">{{friendB}}</button>
+			<button *ngIf='isUnfriend' id='friendBUnfriend' (click)="addFriendClicked(username)">{{friendB}}</button>
+			<div><span id='color1'>Username:</span> {{username}}</div>
+			<div><span id='color1'>Email:</span> {{email}}</div>
+			<div><span id='color1'>Age:</span> {{age}}</div>
+			<p></p>
+			<div id='color1'>Bio</div>
+			<textarea id='bio' #biotext value='{{bio}}' type="text" readonly></textarea>
+			<div><span id='color1'>Interests: </span>
+				<div style='width:300px'><button id='existingInterest' *ngFor="let item of interests" [disabled]='true'>{{item}}</button></div>
+			</div>
+			<p></p>
+		</div>
+
+		<div class='column'>
+			<div class='row' id='info-box'>
+				<span style='margin:0 15px 0 0'><b>type: </b><button [disabled]='true' id='button1'>{{type}}</button></span>
+				<span><b>level: </b><button [disabled]='true' id='button1'>{{level}}</button></span>
+			</div>
+			<br>
+
+			<div class='row'>
+				<div class='column'>
+					<div><span id='color1'>Fandom Subscriptions</span>
+					</div>
+				
+					<div class="list-group">
+						<a *ngFor="let fandom of fandoms" (click)='toFandomPg(fandomval.value)' class="list-group-item list-group-item-action">
+							<input #fandomval value="{{fandom}}" style="display:none">{{fandom}}</a> 
+					</div>
+				</div>
+				<p></p>
+
+				<div class='column'>
+					<div><span id='color1'>Friends</span>
+					</div>
+				
+					<div class="list-group">
+							<a *ngFor="let friend of friends" (click)='toUserProfile(friendval.value)' class='list-group-item'>
+								<input #friendval value="{{friend}}" style="display:none">{{friend}}</a>
+					</div>
+				</div>
+				<p></p>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+	<div style='text-align: center;' *ngIf="!isShow && !isUnfriend">
+		<button style='font-size:12px' mdbBtn color="info" #edit (click)="redirectToEditProfile()">edit profile</button>
+		<button style='font-size:12px' mdbBtn color="info" #save (click)="logout()">Logout</button>
+	</div>		
+	<br><br>
+</div>
+
+	

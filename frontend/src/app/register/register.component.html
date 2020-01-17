@@ -1,0 +1,30 @@
+<html>
+<!-- Default form register -->
+<form [formGroup]='form' class="text-center p-5">
+
+  <p class="h4 mb-4">Sign up</p>
+
+  <div class="form-row mb-4">
+    <div class="col">
+      <!-- username -->
+      <input type="text" class="form-control" placeholder="Username" formControlName='username' #username>
+    </div>
+  </div>
+
+  <!-- E-mail -->
+  <input type="email" class="form-control mb-4" placeholder="Email (example@mail.com)" formControlName='email' #email>
+
+  <!-- Password -->
+  <input type="password" class="form-control" placeholder="Password" formControlName='password' #password>
+  <small class="form-text text-muted mb-4">
+    At least 6 characters
+  </small>
+
+  <!-- Sign up button -->
+  <button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="!form.valid" (click)="addUser(username.value, email.value, password.value)">Sign up</button>
+  <div #check></div>
+
+  <hr>
+</form>
+<!-- Default form register -->
+</html>

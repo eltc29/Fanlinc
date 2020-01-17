@@ -1,0 +1,91 @@
+#wrap {
+	padding:3em 0 2em 0;
+	/* text-align:center; */
+	margin:0 auto 0 auto;
+	width:80%;
+}
+
+p{
+	font-size:15px;
+}
+
+textarea {
+	border-radius:3px;
+	border-color: #E5E7E9 ;
+	outline: none;
+	width: 300px;
+	resize:none;
+	margin: 0 0 15px 0;
+}
+
+.column{
+	margin-right:25px;
+}
+.row{
+	margin-left:5px;
+}
+
+.list-group{
+	width:300px;
+}
+
+.list-group-item{
+	border-color:#E5E7E9;
+}
+
+/* button {
+	font-size:11px;
+} */
+
+#color1{
+	color:#F5B041;
+}
+
+#friendB{
+	margin: 0 0 15px 30px;
+	font-size:13px;
+	background: #F5B041;
+	border:none;
+	border-radius:3px;
+	color:white;
+}
+#friendB:hover{
+	background: #F39C12;
+}
+#friendBUnfriend{
+	margin: 0 0 15px 30px;
+	font-size:13px;
+	background: #F5B041;
+	border:none;
+	border-radius:3px;
+	color:white;
+}
+#friendBUnfriend:hover{
+	background: #F39C12;
+}
+#existingInterest{
+	background: #F5B041;
+	color:white;
+	border-color:#F5B041;
+	border-style:solid;
+	border-width: 1px;
+	border-radius:3px;
+	margin:0 4px 0 0;
+	font-size:13px
+}
+#info-box{
+	padding:12px;
+	background-color:#FDEBD0 ;
+	width:45%;
+	border-radius: 3px;
+	box-shadow: 0.5px .8px 1px #c9cccd;
+}
+#button1{
+	background: #76D7C4;
+	color:white;
+	border-color:#76D7C4;
+	border-style:solid;
+	border-width: 1px;
+	border-radius:3px;
+	font-size:13.5px
+}
