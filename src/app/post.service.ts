@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '../environments/environment';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class PostService {
 
-	uri = '/api';
+	uri = '';
 
-	constructor(private http: HttpClient, private router: Router) { }
+	constructor(private http: HttpClient, private router: Router) {
+		if (environment.production) {
+			this.uri = '/api';
+		} else {
+			this.uri = 'http://localhost:8080/api';
+		}
+	}
 
 	addPost(tags, title, content, image, author, timestamp, comments, numVotes, fandom, userImage) {
 		const body = {
