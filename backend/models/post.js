@@ -1,8 +1,6 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const Schema = mongoose.Schema;
-
-let postSchema = new Schema({
+const postSchema = new Schema({
 	tags : String,
 	title: {
 		type : String,
@@ -23,7 +21,7 @@ let postSchema = new Schema({
 	comments : [],
 	numVotes : {
 		type : Number
-		
+
 	},
 	fandom : {
 		type : String,
@@ -35,4 +33,4 @@ let postSchema = new Schema({
 	}
 });
 
-module.exports = mongoose.model('postSchema', postSchema);
+export default model('postSchema', postSchema);

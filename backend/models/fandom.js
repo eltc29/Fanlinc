@@ -1,9 +1,6 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const Schema = mongoose.Schema;
-
-let fandomSchema = new Schema({
-
+const fandomSchema = new Schema({
 	image : {
 		type: String,
 		default: "https://via.placeholder.com/100.jpg"
@@ -28,4 +25,4 @@ let fandomSchema = new Schema({
 	events : []
 });
 
-module.exports = mongoose.model('fandom', fandomSchema);
+export default model('fandom', fandomSchema);
