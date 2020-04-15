@@ -6,9 +6,11 @@ import { LocalStorageService } from 'ngx-webstorage';
 @Component({
 	selector: 'app-new-fandom',
 	templateUrl: './new-fandom.component.html',
-	styleUrls: ['./new-fandom.component.css']
+	styleUrls: ['./new-fandom.component.scss']
   })
 export class NewFandomComponent implements OnInit {
+
+	message = '';
 
 	constructor(private router: Router, private fandomService: FandomService, private session: LocalStorageService) {}
 
@@ -30,7 +32,7 @@ export class NewFandomComponent implements OnInit {
 			);
 		}
 		else {
-			alert('some fields are still missing');
+			this.message = 'some fields are still missing';
 		}
 	}
 }

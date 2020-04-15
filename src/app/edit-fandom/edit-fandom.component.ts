@@ -7,7 +7,7 @@ import { FandomService } from '../fandom.service';
 @Component({
 	selector: 'app-edit-fandom',
 	templateUrl: './edit-fandom.component.html',
-	styleUrls: ['./edit-fandom.component.css']
+	styleUrls: ['./edit-fandom.component.scss']
 })
 export class EditFandomComponent implements OnInit {
 
@@ -15,10 +15,9 @@ export class EditFandomComponent implements OnInit {
 	name = '';
 	desc = '';
 
-	constructor(private fandomService: FandomService, private userService: UserService, private route: ActivatedRoute, private router: Router) { }
+	constructor(private fandomService: FandomService, private route: ActivatedRoute, private router: Router) { }
 
 	ngOnInit() {
-
 		this.name = this.route.snapshot.queryParamMap.get('fandom');
 		this.fandomService.getFandom(this.name).subscribe(
 			res => {

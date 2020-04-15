@@ -6,11 +6,12 @@ import { UserService } from '../user.service';
 @Component({
 	selector: 'app-register',
 	templateUrl: './register.component.html',
-	styleUrls: ['./register.component.css']
+	styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
 
 	form: FormGroup;
+	message = '';
 
 	constructor(private userService: UserService, private fb: FormBuilder, private router: Router) { }
 
@@ -34,7 +35,7 @@ export class RegisterComponent implements OnInit {
 					}
 				},
 				err => {
-					this.router.navigate(['/page-not-found']);
+					this.message = 'username already exists';
 				}
 			);
 		}

@@ -1,20 +1,20 @@
-<body>
-    <div id='box'>
-        <h4 style='margin:0 0 20px 0'><b>Edit Fandom</b></h4>
-        <div class='row'>
-            <div style='width:20%;' class='column'>
-                <div style='margin:10px 20px 10px 0;text-align: right;'>Name</div>
-                <div style='margin:30px 20px 10px 0;text-align: right;'>ImageURL</div>
-                <div style='margin:40px 20px 10px 0;text-align: right;'>Description</div>
-            </div>
-            <div style='width:70%' class='column'>
-                <div><input id='title' [disabled]='true' #title placeholder="{{name}}"></div>
-                <div><input id='image' #image></div>
-                <div><textarea id='description' #desc></textarea></div>
-            </div>
-            <button id='submit' (click)='saveChanges(title.value,image.value,desc.value)'>submit</button>
-        </div>
-        
-    </div>   
-</body>
-    
+<div class='page-container'>
+	<div class='page-content-container'>
+		<div class='header'><b>Edit Fandom</b></div>
+
+		<div class='row-container'>
+			<div class='col-container'><p>Name</p></div>
+			<div class='col-container'><input class='title' id='title' [disabled]='true' #title placeholder="{{name}}"></div>
+		</div>
+		<div class='row-container'>
+			<div class='col-container'><p>ImageURL</p></div>
+			<div class='col-container'><input class='image' id='image' #image></div>
+		</div>
+		<div class='row-container'>
+			<div class='col-container'><p>Description</p></div>
+			<div class='col-container'><textarea class='description' id='description' #desc></textarea></div>
+		</div>
+
+		<button class='save-button' mdbBtn color='info' (click)='saveChanges(title.value,image.value,desc.value)'>save changes</button>
+	</div>
+</div>

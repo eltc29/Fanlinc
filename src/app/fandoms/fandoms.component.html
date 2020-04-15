@@ -1,34 +1,32 @@
-<body>
-    <h3 style='margin:.5em 0 .5em -10px;'><b>All Fandoms</b></h3>
-    <div class='row' style='text-align: left;'>
-    <!-- <div class='row'> -->
-        <div class='column' style='width:75%'>
-            <div class='row'>
-            <a *ngFor="let item of fandomNames; let i=index" (click)='toFandomPg(item)' class='fdBox view overlay' id="{{item}}">
-                <img class='img-fluid' id='image' src='{{fandomImages[i]}}'>
-                <a class="mask flex-center rgba-orange-strong" >
-                    <p style='font-size:14px' class="white-text"><b>{{fandomDesc[i]}}</b>
-                    <br><br><b><i class='fa fa-user'></i> {{fandomSubcounts[i]}}</b>
-                </p>
-                </a>
-                <div style='padding:8px 0 0 0;font-size:18px;'>{{item}}</div>
-            </a>
-            </div>
-        </div>
-        <div class='column' style='width:25%; float:right'>
-                <div id='box'>
-                    <h4><b>Can't find any fandom you like. Then, create it !!</b></h4>
+<div class='page-container'>
+	<div class='page-header'>
+		<b>All Fandoms</b>
+		<span class='create-fandom-button-container'>
+			<button class='create-fandom-button' (click)="toNewFandom()">Create Fandom</button>
+		</span>
+	</div>
+	<div class='page-content-container'>
+		<div class='fandom-cards-section-container'>
+			<a class='view overlay fandom-card' *ngFor="let item of fandomNames; let i=index" (click)='toFandomPg(item)' id="{{item}}">
+				<img class='fandom-card-image' src='{{fandomImages[i]}}'>
+				<a class="mask flex-center rgba-orange-strong fandom-card-overlay">
+					<p class="white-text description"><b>{{fandomDesc[i]}}</b>
+						<br><br><b><i class='fa fa-user'></i> {{fandomSubcounts[i]}}</b>
+					</p>
+				</a>
+				<div class='fandom-card-name'>{{item}}</div>
+			</a>
+		</div>
 
-                    <div>
-                    <div><input id='title' #title placeholder='Enter Fandom name'></div>
-                    <div><textarea id='description' #desc placeholder='Enter Fandom description'></textarea></div>
-                    <!-- no need for admin as admin is the loggedin user -->
+		<div class='create-fandom-section-container'>
+			<div class='create-fandom-content-container'>
+				<div class='header'><b>Can't find any fandom you like. Then, create it !!</b></div>
+				<div><input class='title' id='title' #title placeholder='Enter Fandom name'></div>
+				<div><textarea class='description' id='description' #desc placeholder='Enter Fandom description'></textarea></div>
+				<!-- no need for admin as admin is the loggedin user -->
 
-                    <div style='text-align: center;'><button id='submit' (click)='createFandom(title.value,desc.value)'>submit</button></div>
-                    <!-- <div style='margin-top:10px;color:red'>{{message}}</div> -->
-                    </div>
-                </div>
-        </div>
-        <!-- </div> -->
-    </div>
-</body>
+				<button class='submit-button' id='submit' (click)='createFandom(title.value,desc.value)'>submit</button>
+			</div>
+		</div>
+	</div>
+</div>

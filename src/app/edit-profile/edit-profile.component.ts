@@ -7,7 +7,7 @@ import { PostService } from '../post.service';
 @Component({
 	selector: 'app-edit-profile',
 	templateUrl: './edit-profile.component.html',
-	styleUrls: ['./edit-profile.component.css']
+	styleUrls: ['./edit-profile.component.scss']
 })
 export class EditProfileComponent implements OnInit {
 	username = '';
@@ -20,15 +20,16 @@ export class EditProfileComponent implements OnInit {
 	level = '';
 	newType = '';
 	newLevel = '';
-	types = ['General-fan', 'Cosplayer', 'Vendor', 'Artist'];
-	levels = ['Limited', 'Casual', 'Very-involved', 'Expert'];
+	types = ['Artist', 'Blogger', 'Gamer', 'Musician', 'Reader'];
+	levels = ['Beginner', 'Casual', 'Very-involved', 'Expert'];
 	interests = [];
 	pendingFriends = [];
 	friends = [];
 	fandoms = [];
 	subscribed = [];
 
-	constructor(private userService: UserService, private postService: PostService, private route: ActivatedRoute, private router: Router, private r: Renderer2) { }
+	constructor(private userService: UserService, private postService: PostService, private route: ActivatedRoute,
+				private router: Router, private r: Renderer2) { }
 
 	ngOnInit() {
 		this.userService.getUserByUsername(this.route.snapshot.queryParamMap.get('user')).subscribe(
@@ -77,7 +78,7 @@ export class EditProfileComponent implements OnInit {
 		if (this.newType != '') { type = this.newType; }
 		if (this.newLevel != '') { level = this.newLevel; }
 		if (this.image != image) {
-			let posts:any;
+			let posts: any;
 			this.postService.getAllPosts().subscribe(
 				res => {
 					posts = res.body;

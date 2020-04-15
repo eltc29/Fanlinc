@@ -6,7 +6,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css']
+	styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
 	title = 'Fanlinc';
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
 		if (this.user != null) {
 			this.router.navigate(['/profile'], {queryParams: {user: this.user}}).then(() => window.location.reload());
 		}
-		else{
+		else {
 			alert('Sign in first');
 			this.router.navigate(['/login']);
 		}

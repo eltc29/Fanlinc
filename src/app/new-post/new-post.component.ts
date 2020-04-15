@@ -8,7 +8,7 @@ import { FandomService } from '../fandom.service';
 @Component({
 	selector: 'app-new-post',
 	templateUrl: './new-post.component.html',
-	styleUrls: ['./new-post.component.css']
+	styleUrls: ['./new-post.component.scss']
 })
 export class NewPostComponent implements OnInit {
 
@@ -20,7 +20,8 @@ export class NewPostComponent implements OnInit {
 	fandomBacks = {'none-selected':'white'};
 
 	constructor(private r: Renderer2, private fandomService: FandomService, private userService: UserService,
-							private router: Router, private route: ActivatedRoute, private postService: PostService, private session: LocalStorageService) {}
+				private router: Router, private route: ActivatedRoute, private postService: PostService,
+				private session: LocalStorageService) {}
 
 	ngOnInit() {
 		if (this.route.snapshot.queryParamMap.get('fandom')) {
@@ -46,7 +47,7 @@ export class NewPostComponent implements OnInit {
 		if (this.fandom != '') { this.fandomBacks[this.fandom] = 'white'; }
 		if (name != this.fandomPg) { this.fandomBacks[this.fandomPg] = 'white'; }
 		this.fandom = name;
-		this.fandomBacks[name] = 'orange';
+		this.fandomBacks[name] = '#ffaa5a';
 	}
 
 	createPost(title, tags, content, image) {
@@ -83,7 +84,7 @@ export class NewPostComponent implements OnInit {
 			);
 		}
 		else {
-			this.message = 'some fields are still empty';
+			this.message = 'some fields are still missing';
 		}
 	}
 

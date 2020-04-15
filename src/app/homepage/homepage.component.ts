@@ -7,14 +7,15 @@ import { SessionStorageService } from 'ngx-webstorage';
 @Component({
 	selector: 'app-homepage',
 	templateUrl: './homepage.component.html',
-	styleUrls: ['./homepage.component.css']
+	styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
 
 	form: FormGroup;
 	message = '';
 
-	constructor(private userService: UserService, private fb: FormBuilder, private router: Router, private session: SessionStorageService) { }
+	constructor(private userService: UserService, private fb: FormBuilder, private router: Router,
+				private session: SessionStorageService) { }
 
 	ngOnInit() {
 		this.form = this.fb.group({

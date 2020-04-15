@@ -1,16 +1,12 @@
-<body>
+<div class='page-container'>
+	<div class='content-container'>
+		<div class='header'><b>Create a new Fandom</b></div>
 
-    <div id='box'>
-        <h4><b>Create a new Fandom</b></h4>
+		<div><input class='title'  #title placeholder='Enter Fandom name'></div>
+		<div><textarea class='description' #desc placeholder='Enter Fandom description'></textarea></div>
+		<!-- no need for admin as admin is the logged-in user -->
 
-        <div>
-        <div><input id='title' #title placeholder='Enter Fandom name'></div>
-        <div><textarea id='description' #desc placeholder='Enter Fandom description'></textarea></div>
-        <!-- no need for admin as admin is the loggedin user -->
-
-        <button id='submit' (click)='createFandom(title.value,desc.value)'>submit</button>
-        <!-- <div style='margin-top:10px;color:red'>{{message}}</div> -->
-        </div>
-    </div>
-
-</body>
+		<button class='submit-button' (click)='createFandom(title.value,desc.value)'>submit</button>
+		<div class='err-message' *ngIf="message != ''">{{message}}</div>
+	</div>
+</div>

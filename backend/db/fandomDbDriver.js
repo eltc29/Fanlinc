@@ -1,6 +1,6 @@
 import fandomSchema from './../models/fandom';
 
-export default class FandomDBDriver {
+class FandomDBDriver {
 	getAllFandoms(req, res) {
 		fandomSchema.find(function(err, fandoms) {
 			if (err)
@@ -112,3 +112,5 @@ export default class FandomDBDriver {
 		});
 	}
 }
+
+export default new FandomDBDriver();

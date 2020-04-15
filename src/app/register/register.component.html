@@ -1,30 +1,22 @@
-<html>
-<!-- Default form register -->
-<form [formGroup]='form' class="text-center p-5">
+<div class="page-container">
+	<div class="page-content-container">
+		<form [formGroup]='form'>
+			<div class='header'>Sign up</div>
 
-  <p class="h4 mb-4">Sign up</p>
+			<input class="form-control username" placeholder="Username (usernames cannot be changed)" formControlName='username' #username>
 
-  <div class="form-row mb-4">
-    <div class="col">
-      <!-- username -->
-      <input type="text" class="form-control" placeholder="Username" formControlName='username' #username>
-    </div>
-  </div>
+			<input class="form-control email" type="email" placeholder="Email (example@mail.com)" formControlName='email' #email>
 
-  <!-- E-mail -->
-  <input type="email" class="form-control mb-4" placeholder="Email (example@mail.com)" formControlName='email' #email>
+			<input class="form-control password" type="password" placeholder="Password" formControlName='password' #password>
+			<div class="text-muted">At least 6 characters</div>
 
-  <!-- Password -->
-  <input type="password" class="form-control" placeholder="Password" formControlName='password' #password>
-  <small class="form-text text-muted mb-4">
-    At least 6 characters
-  </small>
+			<div class='err-message' *ngIf="message != ''">{{message}}</div>
 
-  <!-- Sign up button -->
-  <button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="!form.valid" (click)="addUser(username.value, email.value, password.value)">Sign up</button>
-  <div #check></div>
-
-  <hr>
-</form>
-<!-- Default form register -->
-</html>
+			<button class='sign-up-button' mdbBtn color="info" block="true" type="submit" [disabled]="!form.valid" (click)="addUser(username.value, email.value, password.value)">
+				Sign up
+			</button>
+			<div #check></div>
+			<hr>
+		</form>
+	</div>
+</div>

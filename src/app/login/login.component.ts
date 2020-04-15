@@ -7,16 +7,16 @@ import { LocalStorageService } from 'ngx-webstorage';
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.css']
+	styleUrls: ['./login.component.scss']
 })
 
 export class LoginComponent implements OnInit {
 
-	// @ViewChild('check', {static:false}) check: ElementRef;
 	form: FormGroup;
 	message = '';
 
-	constructor(private userService: UserService, private fb: FormBuilder, private router: Router, private session: LocalStorageService) { }
+	constructor(private userService: UserService, private fb: FormBuilder, private router: Router,
+				private session: LocalStorageService) { }
 
 	ngOnInit() {
 		this.form = this.fb.group({

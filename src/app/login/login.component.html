@@ -1,38 +1,25 @@
-<!doctype html>
-<html>
-	<!-- Default form login -->
-<form [formGroup]='form' class="text-center p-5">
+<div class="page-container">
+	<div class="page-content-container">
+		<form [formGroup]='form'>
+			<div class='header'>Sign in</div>
 
-	<p class="h4 mb-4">Sign in</p>
+			<input class="form-control username" placeholder="Username" formControlName='username' #username>
 
-	<!-- Email -->
-	<input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Username" formControlName='username' #username>
+			<input class="form-control password" type="password" placeholder="Password" formControlName='password' #password>
 
-	<!-- Password -->
-	<input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" formControlName='password' #password>
+			<div class='err-message'>{{message}}</div>
 
-	<div style="margin-top:-8px;color:red">{{message}}</div>
-	<div class="d-flex justify-content-around">
-		<!-- <div> -->
-			<!-- Remember me -->
-			<!-- <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
-		</div>
-		<div> -->
-			<!-- Forgot password -->
-			<!-- <a href="#">Forgot password?</a>
-		</div> -->
+			<!-- <div>
+				<span>Remember me <mdb-checkbox [default]="true"></mdb-checkbox></span>
+				Forgot password? <a routerLink='#' routerLinkActive='active'>Click here</a>
+			</div> -->
+
+			<button class='sign-in-button' mdbBtn color="info" block="true" type="submit" [disabled]="!form.valid" (click)="getUser(username.value, password.value)">
+				Sign in
+			</button>
+
+			<hr>
+			<p>Not a member? <a routerLink='/register' routerLinkActive='active'>Register</a></p>
+		</form>
 	</div>
-
-	<!-- Sign in button -->
-	<button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="!form.valid" (click)="getUser(username.value, password.value)">Sign in</button>
-
-	<hr>
-	<!-- Register -->
-	<p>Not a member?
-		<a routerLink='/register' routerLinkActive='active'>Register</a>
-	</p>
-
-</form>
-<!-- Default form login -->
-
-</html>
+</div>

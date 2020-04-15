@@ -14,7 +14,7 @@ export class UserService {
 		if (environment.production) {
 			this.uri = '/api';
 		} else {
-			this.uri = 'http://localhost:8080/api';
+			this.uri = 'http://192.168.2.22:8080/api';
 		}
 	}
 
@@ -38,8 +38,9 @@ export class UserService {
 			password: password,
 			image: defaultProfilePic,
 			profile: {
-				type: 'general fan',
-				level: 'limited'
+				type: 'n/a',
+				level: 'n/a',
+				bio: ''
 			}
 		};
 		return this.http.post(`${this.uri}/users/add`, user, { observe: 'response' });

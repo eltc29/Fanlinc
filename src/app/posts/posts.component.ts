@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
 @Component({
 	selector: 'app-posts',
 	templateUrl: './posts.component.html',
-	styleUrls: ['./posts.component.css']
+	styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit{
 
@@ -39,7 +39,9 @@ export class PostsComponent implements OnInit{
 	checkMostRecent = false;
 	password = '';
 
-	constructor(private r: Renderer2, private route: ActivatedRoute, private userService:UserService, private fandomService: FandomService, private router: Router, private postService:PostService, private session: LocalStorageService) {}
+	constructor(private r: Renderer2, private route: ActivatedRoute, private userService:UserService,
+				private fandomService: FandomService, private router: Router, private postService:PostService,
+				private session: LocalStorageService) {}
 
 	ngOnInit() {
 		this.user = this.session.retrieve('logged-in');
@@ -68,7 +70,7 @@ export class PostsComponent implements OnInit{
 							this.sortByFandomImp(this.route.snapshot.queryParamMap.get('fandom'), 'most-recent');
 						}
 						else {
-							this.postHeader = 'Most recent posts';
+							this.postHeader = 'Most Recent posts';
 							this.sortByMostRecentImp();
 						}
 					}
@@ -105,6 +107,16 @@ export class PostsComponent implements OnInit{
 			if ($('#recent-filter').is(':checked')) { $('#recent-filter').prop('checked', false); }
 			this.checkPopularity = !this.checkPopularity;
 		});
+
+		$('#recent-filter-1').on('click', () => {
+			if ($('#pop-filter-1').is(':checked')) { $('#pop-filter-1').prop('checked', false); }
+			this.checkMostRecent = !this.checkMostRecent;
+		});
+
+		$('#pop-filter-1').on('click', () => {
+			if ($('#recent-filter-1').is(':checked')) { $('#recent-filter-1').prop('checked', false); }
+			this.checkPopularity = !this.checkPopularity;
+		});
 	}
 
 	setFandom(name) {
@@ -112,7 +124,7 @@ export class PostsComponent implements OnInit{
 			this.r.setStyle(document.querySelector('#' + this.fandom), 'background', 'white');
 		}
 		this.fandom = name;
-		this.r.setStyle(document.querySelector('#' + name), 'background', 'orange');
+		this.r.setStyle(document.querySelector('#' + name), 'background', '#ffaa5a');
 	}
 
 	sortFandoms() {
@@ -225,10 +237,10 @@ export class PostsComponent implements OnInit{
 			return (days + ' days ago');
 		}
 		if (mins > 59) {
-			if (hours == 1) { return (hours + ' day ago'); }
+			if (hours == 1) { return (hours + ' hour ago'); }
 			return (hours + ' hours ago');
 		}
-		if (mins == 1) { return (mins + ' min ago'); }
+		if (mins <= 1) { return (mins + ' min ago'); }
 		return (mins + ' mins ago');
 	}
 
@@ -252,25 +264,6 @@ export class PostsComponent implements OnInit{
 		else {
 			if (confirm('Sign in first!!')) { this.router.navigate(['/login']); }
 		}
-		// else if (this.id == postId) {//same post clicked
-		//   this.num += 1;
-		//   $("#"+postId).html(this.num)
-		//   this.postService.setNumVotes(postId, this.num).subscribe(
-		//     res=>{
-		//       console.log(res.body)
-		//     }
-		//   )
-		// }
-		// else { //different post
-		//   this.id = postId
-		//   this.num = numVotes1+1
-		//   $("#"+postId).html(this.num)
-		//   this.postService.setNumVotes(postId, this.num).subscribe(
-		//     res=>{
-		//       console.log(res.body)
-		//     }
-		//   )
-		// }
 	}
 
 	downvote(postId, numVotes) {
@@ -292,25 +285,6 @@ export class PostsComponent implements OnInit{
 		else {
 			if (confirm('Sign in first!!')) { this.router.navigate(['/login']); }
 		}
-		// else if (this.id == postId) { //same post clicked
-		//   this.num -= 1;
-		//   $("#"+postId).html(this.num)
-		//   this.postService.setNumVotes(postId, this.num).subscribe(
-		//     res=>{
-		//       console.log(res.body)
-		//     }
-		//   )
-		// }
-		// else { //different post
-		//   this.id = postId
-		//   this.num = numVotes1-1
-		//   $("#"+postId).html(this.num)
-		//   this.postService.setNumVotes(postId, this.num).subscribe(
-		//     res=>{
-		//       console.log(res.body)
-		//     }
-		//   )
-		// }
 	}
 
 	redirectToFandom(fandom) {
@@ -363,9 +337,9 @@ export class PostsComponent implements OnInit{
 
 	deletePost(id, author) {
 		if (author == this.user) {
-			let username = prompt('Confirm username');
-			let password = prompt('Confirm password');
-			if (username == this.user && password == this.password) {
+			// let username = prompt('Confirm username');
+			// let password = prompt('Confirm password');
+			if (confirm('You are about to delete a post!!')) {
 				this.postService.deletePost(id).subscribe(
 					res => {
 						console.log(res.body);

@@ -1,7 +1,7 @@
 import postSchema from './../models/post';
 import { ObjectId } from 'mongodb';
 
-export default class PostDBDriver {
+class PostDBDriver {
 	getAllPosts(req, res) {
 		postSchema.find(function(err, posts) {
 			if (err)
@@ -116,3 +116,5 @@ export default class PostDBDriver {
 		})
 	}
 }
+
+export default new PostDBDriver();

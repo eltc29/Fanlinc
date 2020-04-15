@@ -10,9 +10,9 @@ import { PostsComponent } from './posts/posts.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FandomsComponent } from './fandoms/fandoms.component';
-import { FandomPageComponent } from './fandoms/fandom-page.component';
+import { FandomPageComponent } from './fandom-page/fandom-page.component';
 import { NewFandomComponent } from './new-fandom/new-fandom.component';
-import { CommentPgComponent } from './posts/commentPg.component';
+import { CommentPgComponent } from './posts/comment-page.component';
 import { EditFandomComponent } from './edit-fandom/edit-fandom.component';
 
 const routes: Routes = [

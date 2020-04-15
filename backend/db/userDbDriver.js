@@ -1,6 +1,6 @@
 import userSchema from './../models/user';
 
-export default class UserDBDriver {
+class UserDBDriver {
 	getAllUsers(req, res) {
 		userSchema.find(function(err, users) {
 			if (err)
@@ -150,3 +150,5 @@ export default class UserDBDriver {
 		});
 	}
 }
+
+export default new UserDBDriver();

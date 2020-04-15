@@ -14,7 +14,7 @@ export class PostService {
 		if (environment.production) {
 			this.uri = '/api';
 		} else {
-			this.uri = 'http://localhost:8080/api';
+			this.uri = 'http://192.168.2.22:8080/api';
 		}
 	}
 
