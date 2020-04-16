@@ -147,28 +147,28 @@ export class FandomPageComponent implements OnInit {
 	sortByPopularityImp() {
 		let arr = [];
 		for (let i = 0; i < this.posts.length; i++) {
-		  arr.push([this.posts[i].numVotes, i]);
+			arr.push([this.posts[i].numVotes, i]);
 		}
 		let sortedPosts = arr.sort((a, b) => b[0] - a[0]);
 		for (let i = 0; i < sortedPosts.length; i++) {
-		  this.postNumVotes.push(this.posts[sortedPosts[i][1]].numVotes);
-		  this.postTitles.push(this.posts[sortedPosts[i][1]].title);
-		  this.postContents.push(this.posts[sortedPosts[i][1]].content);
-		  this.userImages.push(this.posts[sortedPosts[i][1]].userImage);
-		  if (this.posts[sortedPosts[i][1]].image != null) {
+			this.postNumVotes.push(this.posts[sortedPosts[i][1]].numVotes);
+			this.postTitles.push(this.posts[sortedPosts[i][1]].title);
+			this.postContents.push(this.posts[sortedPosts[i][1]].content);
+			this.userImages.push(this.posts[sortedPosts[i][1]].userImage);
+			if (this.posts[sortedPosts[i][1]].image != null) {
 			this.postImages.push(this.posts[sortedPosts[i][1]].image);
-		  }
-		  else {
+			}
+			else {
 			this.postImages.push('');
-		  }
-		  this.postAuthors.push(this.posts[sortedPosts[i][1]].author);
-		  this.postTags.push(this.posts[sortedPosts[i][1]].tags);
-		  this.postNumComments.push(this.posts[sortedPosts[i][1]].comments.length);
-		  if (this.posts[sortedPosts[i][1]].comments.length <= 1) { this.comments.push('comment'); }
-		  else { this.comments.push('comments'); }
-		  this.postTimestamps.push(this.timeDifference((new Date().getTime()), this.posts[sortedPosts[i][1]].timestamp));
-		  this.postIds.push(this.posts[sortedPosts[i][1]]._id);
-		  this.postFandoms.push(this.posts[sortedPosts[i][1]].fandom);
+			}
+			this.postAuthors.push(this.posts[sortedPosts[i][1]].author);
+			this.postTags.push(this.posts[sortedPosts[i][1]].tags);
+			this.postNumComments.push(this.posts[sortedPosts[i][1]].comments.length);
+			if (this.posts[sortedPosts[i][1]].comments.length <= 1) { this.comments.push('comment'); }
+			else { this.comments.push('comments'); }
+			this.postTimestamps.push(this.timeDifference((new Date().getTime()), this.posts[sortedPosts[i][1]].timestamp));
+			this.postIds.push(this.posts[sortedPosts[i][1]]._id);
+			this.postFandoms.push(this.posts[sortedPosts[i][1]].fandom);
 		}
 	}
 
@@ -176,28 +176,28 @@ export class FandomPageComponent implements OnInit {
 		console.log(this.posts);
 		let arr = [];
 		for (let i = 0; i < this.posts.length; i++) {
-		  arr.push([this.posts[i].timestamp, i]);
+			arr.push([this.posts[i].timestamp, i]);
 		}
 		let sortedPosts = arr.sort((a, b) => b[0] - a[0]);
 		for (let i = 0; i < sortedPosts.length; i++) {
-		  this.postNumVotes.push(this.posts[sortedPosts[i][1]].numVotes);
-		  this.postTitles.push(this.posts[sortedPosts[i][1]].title);
-		  this.postContents.push(this.posts[sortedPosts[i][1]].content);
-		  this.userImages.push(this.posts[sortedPosts[i][1]].userImage);
-		  if (this.posts[sortedPosts[i][1]].image != null) {
+			this.postNumVotes.push(this.posts[sortedPosts[i][1]].numVotes);
+			this.postTitles.push(this.posts[sortedPosts[i][1]].title);
+			this.postContents.push(this.posts[sortedPosts[i][1]].content);
+			this.userImages.push(this.posts[sortedPosts[i][1]].userImage);
+			if (this.posts[sortedPosts[i][1]].image != null) {
 			this.postImages.push(this.posts[sortedPosts[i][1]].image);
-		  }
-		  else {
+			}
+			else {
 			this.postImages.push('');
-		  }
-		  this.postAuthors.push(this.posts[sortedPosts[i][1]].author);
-		  this.postTags.push(this.posts[sortedPosts[i][1]].tags);
-		  this.postNumComments.push(this.posts[sortedPosts[i][1]].comments.length);
-		  if (this.posts[sortedPosts[i][1]].comments.length <= 1) { this.comments.push('comment'); }
-		  else { this.comments.push('comments'); }
-		  this.postTimestamps.push(this.timeDifference((new Date().getTime()), this.posts[sortedPosts[i][1]].timestamp));
-		  this.postIds.push(this.posts[sortedPosts[i][1]]._id);
-		  this.postFandoms.push(this.posts[sortedPosts[i][1]].fandom);
+			}
+			this.postAuthors.push(this.posts[sortedPosts[i][1]].author);
+			this.postTags.push(this.posts[sortedPosts[i][1]].tags);
+			this.postNumComments.push(this.posts[sortedPosts[i][1]].comments.length);
+			if (this.posts[sortedPosts[i][1]].comments.length <= 1) { this.comments.push('comment'); }
+			else { this.comments.push('comments'); }
+			this.postTimestamps.push(this.timeDifference((new Date().getTime()), this.posts[sortedPosts[i][1]].timestamp));
+			this.postIds.push(this.posts[sortedPosts[i][1]]._id);
+			this.postFandoms.push(this.posts[sortedPosts[i][1]].fandom);
 		}
 	}
 
@@ -330,12 +330,12 @@ export class FandomPageComponent implements OnInit {
 
 	toNewPost() {
 		if (this.user != null && this.user != '') {
-			  this.router.navigate(['/create-new-post'], {queryParams: {fandom: this.name}});
+			this.router.navigate(['/create-new-post'], {queryParams: {fandom: this.name}});
 		}
 		else {
-			  if (confirm('Sign in first!')) {
+			if (confirm('Sign in first!!')) {
 				this.router.navigate(['/login']);
-			  }
+			}
 		}
 	}
 

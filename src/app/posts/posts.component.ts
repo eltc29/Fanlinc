@@ -313,8 +313,8 @@ export class PostsComponent implements OnInit{
 		if (this.user != null && this.user != '') {
 			this.router.navigate(['/create-new-post']);
 		}
-		else{
-			if (confirm('Sign in first!')) {
+		else {
+			if (confirm('Sign in first!!')) {
 				this.router.navigate(['/login']);
 			}
 		}
@@ -324,8 +324,8 @@ export class PostsComponent implements OnInit{
 		if (this.user != null && this.user != '') {
 			this.router.navigate(['/create-new-fandom']);
 		}
-		else{
-			if (confirm('Sign in first!')) {
+		else {
+			if (confirm('Sign in first!!')) {
 				this.router.navigate(['/login']);
 			}
 		}

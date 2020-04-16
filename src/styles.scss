@@ -20,6 +20,6 @@ $base-font-family: Quicksand;
 	font-size: $base-font-size;
 
 	@media screen and (max-width: 425px) {
-		font-size: $base-font-size - 2px;
+		font-size: $base-font-size - 3px;
 	}
 }

@@ -62,8 +62,7 @@
 				border-color: $primary-color;
 
 				@media screen and (max-width: 425px) {
-					font-size: 9.5px;
-					margin-top: 2px;
+					margin-top: 1.2px;
 				}
 			}
 
@@ -109,7 +108,9 @@
 				.view-all-button {
 					@extend %ext-common-button;
 					background: $primary-color;
-					border: none;
+					border-color: $primary-color;
+					padding: 0px 4px;
+					line-height: 16px;
 					float: right;
 
 					&:hover {
@@ -167,17 +168,20 @@
 						@extend %ext-common-button;
 						background-color: $secondary-color;
 						border-color: $secondary-color;
+						@media screen and (max-width: 425px) {
+							height: 22px;
+						}
 
 						&:hover {
 							color: grey;
 						}
-
-						@media screen and (max-width: 425px) {
-							font-size: $base-font-size - 2px;
-						}
 					}
 
 					.sort-dropdown-button-container {
+						@media screen and (max-width: 425px) {
+							margin-top: -1px;
+						}
+
 						.sort-dropdown-button {
 							@extend %ext-common-button;
 							margin-left: 10px;
@@ -190,6 +194,7 @@
 
 							@media screen and (max-width: 425px) {
 								margin-left: 6px;
+								height: 22px;
 							}
 						}
 

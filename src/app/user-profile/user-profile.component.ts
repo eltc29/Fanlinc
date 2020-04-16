@@ -105,7 +105,6 @@ export class UserProfileComponent implements OnInit {
 					this.router.navigate(['/page-not-found']);
 				}
 			);
-
 		}
 		window.onhashchange = () => {
 			window.location.reload();

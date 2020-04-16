@@ -10,7 +10,7 @@
 		<a class='login-header' routerLink='/login'>Login</a>
 
 		<a class='username-container' *ngIf='isShow' title='{{user}}' (click)="navig()">
-			<img class='user-img' src="{{userImg}}">{{user}}
+			<img class='user-img' src="{{userImg}}"><span class="username">{{user}}</span>
 		</a>
 		<div class="notif-dropdown-container" *ngIf='isShow' ngbDropdown>
 			<button class="notif-dropdown-button btn-outline fa fa-bell" ngbDropdownToggle>

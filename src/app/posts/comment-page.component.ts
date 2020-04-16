@@ -89,8 +89,8 @@ export class CommentPgComponent implements OnInit{
 		if (this.session.retrieve('logged-in') != null && this.session.retrieve('logged-in') != '') {
 				this.isShow = !this.isShow;
 		}
-		else{
-				if (confirm('Sign in first!')) { this.router.navigate(['/login']); }
+		else {
+				if (confirm('Sign in first!!')) { this.router.navigate(['/login']); }
 		}
 	}
 
@@ -114,25 +114,6 @@ export class CommentPgComponent implements OnInit{
 		else {
 				if (confirm('Sign in first!!')) { this.router.navigate(['/login']); }
 		}
-		// else if (this.id == postId) {//same post clicked
-		//     this.num += 1;
-		//     $("#numVote").html(this.num)
-		//     this.postService.setNumVotes(postId, this.num).subscribe(
-		//         res=>{
-		//         console.log(res.body)
-		//         }
-		//     )
-		// }
-		// else { //different post
-		//     this.id = postId
-		//     this.num = numVotes+1
-		//     $("#numVote").html(this.num)
-		//     this.postService.setNumVotes(postId, this.num).subscribe(
-		//         res=>{
-		//         console.log(res.body)
-		//         }
-		//     )
-		// }
 	}
 
 	downvote() {
@@ -154,38 +135,23 @@ export class CommentPgComponent implements OnInit{
 		else {
 			if (confirm('Sign in first!!')) { this.router.navigate(['/login']); }
 		}
-		// else if (this.id == postId) { //same post clicked
-		//     this.num -= 1;
-		//     $("#numVote").html(this.num)
-		//     this.postService.setNumVotes(postId, this.num).subscribe(
-		//         res=>{
-		//         console.log(res.body)
-		//         }
-		//     )
-		// }
-		// else { //different post
-		//     this.id = postId
-		//     this.num = numVotes-1
-		//     $("#numVote").html(this.num)
-		//     this.postService.setNumVotes(postId, this.num).subscribe(
-		//         res=>{
-		//         console.log(res.body)
-		//         }
-		//     )
-		// }
 	}
 
 	sendComment(comment) {
-		console.log(comment);
-		this.postService.addComment(this.postId, comment, this.session.retrieve('logged-in')).subscribe(
-			res => {
-					console.log(res.body);
-					window.location.reload();
-			},
-			err => {
-					console.log(err);
-			}
-		);
+		if (comment != '') {
+			this.postService.addComment(this.postId, comment, this.session.retrieve('logged-in')).subscribe(
+				res => {
+						console.log(res.body);
+						window.location.reload();
+				},
+				err => {
+						console.log(err);
+				}
+			);
+		}
+		else {
+			alert('Comment something first!!');
+		}
 	}
 
 	redirectToFandom(fandom) {
@@ -195,13 +161,13 @@ export class CommentPgComponent implements OnInit{
 	toUserProfile(username) {
 		this.userService.getUserByUsername(this.user).subscribe(
 			res => {
-					if (res.body[0].profile.pending_friends.includes(username)) {
-					this.router.navigate(['/profile'], {queryParams: {user: username, req: true}});
-					}
-					else { this.router.navigate(['/profile'], {queryParams: {user: username}}); }
+				if (res.body[0].profile.pending_friends.includes(username)) {
+				this.router.navigate(['/profile'], {queryParams: {user: username, req: true}});
+				}
+				else { this.router.navigate(['/profile'], {queryParams: {user: username}}); }
 			},
 			err => {
-					console.log(err);
+				console.log(err);
 			}
 		);
 	}
